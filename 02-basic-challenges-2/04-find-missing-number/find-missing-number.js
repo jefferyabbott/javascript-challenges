@@ -15,7 +15,6 @@ function findMissingNumber(arr) {
             return currentNumber + 1;
         }
     }
-
 }
 
 module.exports = findMissingNumber;
