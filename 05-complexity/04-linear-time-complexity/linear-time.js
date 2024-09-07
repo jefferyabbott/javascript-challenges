@@ -15,7 +15,7 @@ console.time('Sum Array 1');
 console.log(sumArray(arr1));
 console.timeEnd('Sum Array 1');
 
-const arr2 = Array.from({ length: 1000000 }, (_, index) => index + 1);
+const arr2 = Array.from({ length: 10000000 }, (_, index) => index + 1);
 
 console.time('Sum Array 2');
 console.log(sumArray(arr2));
