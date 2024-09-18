@@ -81,6 +81,10 @@ class HashTable {
     }
   }
 
+  clear() {
+    this.storage = [];
+  }
+
 }
 
 module.exports = HashTable;
