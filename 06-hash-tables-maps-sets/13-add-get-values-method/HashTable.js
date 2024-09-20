@@ -84,7 +84,7 @@ class HashTable {
 
   getValues() {
     const values = [];
-    for (let index = 0; index < this.limit; index++) {
+    for (let index = 0; index < this.storage.length; index++) {
       if (this.storage[index]) {
         for (let i = 0; i < this.storage[index].length; i++) {
           values.push(this.storage[index][i][1]);
