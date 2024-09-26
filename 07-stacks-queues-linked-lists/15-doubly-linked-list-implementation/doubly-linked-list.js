@@ -58,6 +58,62 @@ DoublyLinkedList.prototype.insertAt = function (index, data) {
   this.length++;
 }
 
+DoublyLinkedList.prototype.get = function (index) {
+  if (index < 0 || index > this.length) {
+    return null;
+  }
+  let currentNode = this.head;
+  for (let i = 0; i < index; i++) {
+    currentNode = currentNode.next;
+  }
+  return currentNode.data;
+}
+
+DoublyLinkedList.prototype.remove = function (index) {
+  if (index < 0 || index > this.length) {
+    return null;
+  }
+  let data;
+  if (index === 0) {
+    data = this.head.next.data;
+    this.head = this.head.next;
+    if (this.head) {
+      this.head.prev = null;
+    } else {
+      this.tail = null;
+    }
+  } else if (index === this.length - 1) {
+    data = this.tail.data;
+    this.tail = this.tail.prev;
+    if (this.tail) {
+      this.tail.next = null;
+    } else {
+      this.head = null;
+    }
+  } else {
+    let currentNode = this.head;
+    for (let i = 0; i < index; i++) {
+      currentNode = currentNode.next;
+    }
+    data = currentNode.data;
+    currentNode.prev.next = currentNode.next;
+    currentNode.next.prev = currentNode.prev;
+  }
+  this.length--;
+  return data;
+}
+
+DoublyLinkedList.prototype.contains = function (target) {
+  let current = this.head;
+  while (current) {
+    if (current.data === target) {
+      return true;
+    }
+    current = current.next;
+  }
+  return false;
+}
+
 DoublyLinkedList.prototype.printAll = function () {
   let current = this.head;
   while (current) {
